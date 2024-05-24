@@ -11,9 +11,16 @@ while True:
         'v': '⍊', 'w': '̣', 'x': '̇̇/', 'y': '⚍', 'z': '⍊', 'ä': 'ᔑᒷ', 'ö': '𝙹ᒷ',
         'ü': 'ℸᒷ', 'ß': '∷∷'
     }
+    thingmap = {value: key for key, value in substitution_map.items()}
 
     result = ""
-    for char in input("> ").lower():
-        result += substitution_map.get(char, char)
+    content = input("> ").lower()
+    if "--invert" in content:
+        content = content.replace("--invert", "")
+        for char in content:
+            result += thingmap.get(char, char)
+    else:
+        for char in content:
+            result += substitution_map.get(char, char)
 
     print("\033[F\033[K" + result)
