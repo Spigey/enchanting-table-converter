@@ -12,7 +12,7 @@ else:
     os.system('clear')
 print("Enchanting table language converter made by Spigg\n"
       "- Write any text to convert to minecraft enchanting table language\n"
-      "- Write any enchaning table language to convert to text\n")
+      "- Write any enchanting table language to convert to text\n")
 while True:
     substitution_map = {
         'a': 'ᔑ', 'b': 'ʖ', 'c': 'ᓵ', 'd': '↸', 'e': 'ᒷ', 'f': '⎓', 'g': '⊣',
