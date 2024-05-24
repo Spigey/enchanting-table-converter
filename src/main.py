@@ -1,8 +1,18 @@
 import os
+
+RED = '\033[31m'
+GREEN = '\033[32m'
+BLUE = '\033[34m'
+RESET = '\033[0m'
+ORANGE = '\033[38;5;208m'
+
 if os.name == 'nt':
     os.system('cls')
 else:
     os.system('clear')
+print("Enchanting table language converter made by Spigg\n"
+      "- Write any text to convert to minecraft enchanting table language\n"
+      "- Write any enchaning table language to convert to text\n")
 while True:
     substitution_map = {
         'a': 'ᔑ', 'b': 'ʖ', 'c': 'ᓵ', 'd': '↸', 'e': 'ᒷ', 'f': '⎓', 'g': '⊣',
@@ -14,13 +24,11 @@ while True:
     thingmap = {value: key for key, value in substitution_map.items()}
 
     result = ""
-    content = input("> ").lower()
-    if "--invert" in content:
-        content = content.replace("--invert", "")
-        for char in content:
-            result += thingmap.get(char, char)
+    content = input("").lower()
+    if content == "--exit":
+        os.system("py main.py")
     else:
         for char in content:
-            result += substitution_map.get(char, char)
+            result += substitution_map.get(char, thingmap.get(char, char))
 
-    print("\033[F\033[K" + result)
+        if not content == "": print(f"\033[F{content} {ORANGE} > {RESET} {result}")
